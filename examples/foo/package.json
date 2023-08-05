@@ -1,0 +1,10 @@
+{
+  "name": "foo",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "powar-ts": "file:/Users/constantine/git/powar-ts/examples/foo/../../",
+    "ts-node": "^10.9.1"
+  }
+}
