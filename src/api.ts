@@ -200,11 +200,9 @@ export function module<T>(m: (vars: T) => Module): (vars: T) => Module {
 }
 
 /**
- * Define a general powar-ts module action.
- *
- * This is some object `U` determined by some module variables `T` and the powar-ts module API.
+ * Produce some object `U` determined by some module variables `T` and the powar-ts module API.
  */
-export function action<T, U>(
+export function produce<T, U>(
   m: (vars: T, p: ModuleApi) => U
 ): (vars: T, p: ModuleApi) => U {
   return m;
