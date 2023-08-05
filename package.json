@@ -6,7 +6,8 @@
   "main": "dist/index.js",
   "scripts": {
     "check": "tsc --noEmit",
-    "build": "tsc"
+    "build": "tsc",
+    "prepack": "tsc"
   },
   "types": "dist/index.d.ts",
   "files": [
