@@ -96,8 +96,8 @@ async function performModuleActions(ctx: Ctx): Promise<void> {
  * Run the pre- and post-actions for the current powar-ts run.
  */
 async function performActions(ctx: Ctx): Promise<void> {
-  const { api } = ctx;
-  global.preAction && (await global.preAction(api));
+  const { api, config } = ctx;
+  config.preAction && (await config.preAction(api));
   await performModuleActions(ctx);
-  global.postAction && (await global.postAction(api));
+  config.postAction && (await config.postAction(api));
 }
