@@ -120,7 +120,7 @@ export interface CommonApi {
   /**
    * Read the contents of the given file.
    */
-  read: (filename: string) => Promise<Output>;
+  read: (filename: string) => Promise<string>;
 }
 
 /**
@@ -197,7 +197,9 @@ export interface GlobalConfig {
 /**
  * Make a powar-ts module.
  */
-export function module<T>(m: (vars: T) => Module): (vars: T) => Module {
+export function module<T = undefined>(
+  m: T extends undefined ? () => Module : (vars: T) => Module
+): typeof m {
   return m;
 }
 
@@ -205,7 +207,7 @@ export function module<T>(m: (vars: T) => Module): (vars: T) => Module {
  * Produce some object `U` determined by some module variables `T` and the powar-ts module API.
  */
 export function produce<T, U>(
-  m: (vars: T, p: ModuleApi) => U,
+  m: (vars: T, p: ModuleApi) => U
 ): (vars: T, p: ModuleApi) => U {
   return m;
 }

@@ -69,7 +69,7 @@ export function makeCommonApi({
       await ensureParentExists(dest);
       // Ensure to fully resolve the source path, so that the link is not
       // relative.
-      await exec(`ln -sf "$(realpath '${src}')" "${dest}"`);
+      await exec(`ln -sf "$(realpath ${src})" "${dest}"`);
     });
   }
 
@@ -80,8 +80,8 @@ export function makeCommonApi({
     });
   }
 
-  async function read(filename: string): Promise<Output> {
-    return await exec(`cat "${filename}"`);
+  async function read(filename: string): Promise<string> {
+    return (await exec(`cat "${filename}"`)).stdoutAsString();
   }
 
   return {
@@ -101,7 +101,7 @@ export function makeCommonApi({
  */
 async function iterateEntries(
   entries: [string, string | string[]][],
-  fn: (src: string, dest: string) => Promise<void>,
+  fn: (src: string, dest: string) => Promise<void>
 ): Promise<void> {
   for (const [src, d] of entries) {
     const destinations = Array.isArray(d) ? d : [d];
