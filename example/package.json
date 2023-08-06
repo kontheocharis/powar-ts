@@ -1,0 +1,16 @@
+{
+  "name": "<<NAME>>",
+  "author": "<<AUTHOR>>",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "scripts": {
+    "powar": "ts-node global.ts"
+  },
+  "dependencies": {
+    "@types/node": "^20.4.8",
+    "powar-ts": "https://github.com/kontheocharis/powar-ts",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}

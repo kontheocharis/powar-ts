@@ -25,7 +25,7 @@ export async function runCli(
 
 // CLI definition:
 const CLI_NAME = "powar-ts";
-const CLI_DESCRIPTION = "A tool for managing your TypeScript project.";
+const CLI_DESCRIPTION = "A tool for managing your dot-files.";
 const CLI_ARGS = {
   dryRun: flag({
     long: "dry-run",

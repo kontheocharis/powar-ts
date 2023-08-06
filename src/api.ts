@@ -15,7 +15,7 @@ export type Contents = [string, string | string[]][];
 /**
  * Options for the `exec` function.
  */
-export interface ExecuteOpts {
+export interface ExecOpts {
   /**
    * The standard input to pass to the command.
    */
@@ -113,7 +113,7 @@ export interface CommonApi {
   /**
    * Execute the given command in the shell.
    */
-  exec: (command: string, opts?: ExecuteOpts) => Promise<Output>;
+  exec: (command: string, opts?: ExecOpts) => Promise<Output>;
 
   /**
    * Read the contents of the given file.

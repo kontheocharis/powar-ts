@@ -4,6 +4,9 @@
   "author": "Constantine Theocharis",
   "license": "MIT",
   "main": "dist/index.js",
+  "bin": {
+    "powar-init": "dist/init.js"
+  },
   "scripts": {
     "check": "tsc --noEmit",
     "build": "tsc",
