@@ -6,5 +6,9 @@
     "outDir": "./dist",
     "strict": true
   },
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "docs"
+  },
   "include": ["src/**/*"]
 }
