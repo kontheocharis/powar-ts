@@ -1,7 +1,7 @@
-import { GlobalConfig, CommonApi, Module } from "./api";
-import { makeCommonApi } from "./api-impl";
-import { makeLogger, Logger } from "./logging";
-import { Settings } from "./settings";
+import { CommonApi, GlobalConfig, Module } from "./api.ts";
+import { makeCommonApi } from "./api_impl.ts";
+import { Logger, makeLogger } from "./logging.ts";
+import { Settings } from "./settings.ts";
 
 /**
  * Run powar-ts with the given settings and global configuration.

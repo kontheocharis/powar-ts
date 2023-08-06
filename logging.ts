@@ -34,13 +34,13 @@ export interface Logger {
  */
 export function makeLogger(
   logLevel: Logger["logLevel"] = "info",
-  depth = 0
+  depth = 0,
 ): Logger {
   const PREFIX = " ".repeat(depth * 2);
 
   function fatal(message: string): never {
     console.error("ERROR: " + message);
-    process.exit(1);
+    Deno.exit(1);
   }
 
   function info(message: string): void {

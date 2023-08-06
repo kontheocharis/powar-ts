@@ -5,11 +5,11 @@ import {
   Entries,
   ExecOpts,
   Output,
-} from "./api";
-import { Logger } from "./logging";
-import { dirname } from "path";
-import { Settings } from "./settings";
-import { execute } from "./execute";
+} from "./api.ts";
+import { Logger } from "./logging.ts";
+import { Settings } from "./settings.ts";
+import { execute } from "./execute.ts";
+import { path } from "./deps.ts";
 
 /**
  * Options to create a powar-ts API.
@@ -27,7 +27,7 @@ export interface CommonApiOpts {
  */
 export function makeCommonApi({
   log,
-  path,
+  path: rootPath,
   settings,
 }: CommonApiOpts): CommonApi {
   async function exec(command: string, opts: ExecOpts = {}): Promise<Output> {
@@ -38,22 +38,22 @@ export function makeCommonApi({
     }
     log.info(`[RUN] ${command}`);
 
-    return execute(command, {
-      cwd: opts.cwd ?? path,
+    return await execute(command, {
+      cwd: opts.cwd ?? rootPath,
       ...opts,
     });
   }
 
-  async function makeDir(path: string): Promise<void> {
-    await exec(`mkdir -p "${path}"`);
+  async function makeDir(dir: string): Promise<void> {
+    await exec(`mkdir -p "${dir}"`);
   }
 
   /**
    * Ensure that the parent directory of the given path exists, so that it can
    * be used as the target of `cp` or `ln`.
    */
-  async function ensureParentExists(path: string): Promise<void> {
-    const directory = dirname(path);
+  async function ensureParentExists(parent: string): Promise<void> {
+    const directory = path.dirname(parent);
     await exec(`mkdir -p "${directory}"`);
   }
 
@@ -101,7 +101,7 @@ export function makeCommonApi({
  */
 async function iterateEntries(
   entries: [string, string | string[]][],
-  fn: (src: string, dest: string) => Promise<void>
+  fn: (src: string, dest: string) => Promise<void>,
 ): Promise<void> {
   for (const [src, d] of entries) {
     const destinations = Array.isArray(d) ? d : [d];
