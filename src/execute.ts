@@ -1,7 +1,5 @@
 import { spawn } from "child_process";
-import { log } from "console";
-import { ExecOpts as ExecOpts, Output, EMPTY_OUTPUT } from "./api";
-import { CommonApiOpts } from "./api-impl";
+import { ExecOpts as ExecOpts, Output } from "./api";
 
 /**
  * Execute the given command in the shell.

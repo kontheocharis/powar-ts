@@ -6,8 +6,7 @@ import {
   ExecOpts,
   Output,
 } from "./api";
-import { Logger, makeLogger } from "./logging";
-import { spawn } from "child_process";
+import { Logger } from "./logging";
 import { dirname } from "path";
 import { Settings } from "./settings";
 import { execute } from "./execute";
