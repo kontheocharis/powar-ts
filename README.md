@@ -52,7 +52,7 @@ This means that the module `hello_world` was run, which logged the message
 "Hello, world!".
 
 To add your configurations, start by mirroring the `hello_world` module in
-`modules/hello_world/mod.ts` to a program of your choice, for example
+`modules/hello_world/mod.ts` to a program of your choice, for example,
 `modules/nvim/mod.ts`. An example configuration for `nvim` might be:
 
 ```ts
@@ -95,5 +95,5 @@ Done.
 To see all the available command-line arguments for `powar_init`, run
 `powar_init -h`.
 
-All available API functions provided by `powar` are documented in
+All available API functions provided by `powar` are documented
 [here](https://deno.land/x/powar@1.0.1/api.ts?s=CommonApi).
