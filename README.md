@@ -2,10 +2,10 @@
 
 Powar is a dot-file configuration manager.
 
-Each dot-file setup consists of a TypeScript project that uses the `powar-ts`
+Each dot-file setup consists of a TypeScript project that uses the `powar` Deno
 library to define a set of **modules**, each corresponding to a configuration
 for some program or group of programs. For example, a Powar project might
-contain modules `tmux`, `nvim`, `vscode` and `shell-scripts`.
+contain modules `tmux`, `nvim`, `vscode` and `shell_scripts`.
 
 Each of these will install relevant configuration files for each program into
 their appropriate places. Furthermore, each module has the full power of
@@ -16,74 +16,73 @@ installing files or running commands.
 
 Requirements: a UNIX system, recent versions of NodeJS and Yarn.
 
-The first step is to install Powar globally:
+The first step is to install `powar_init` globally with Deno:
 
 ```sh
-$ yarn global add https://github.com/kontheocharis/powar
+$ deno install --allow-read --allow-run https://github.com/kontheocharis/powar/powar_init.ts
 ```
 
-Then, create a new Powar project:
+Then, create a new Powar project (where `powar_init` should be replaced by the
+full installation path printed by the command above, if Deno is not in your
+`PATH`):
 
 ```sh
 $ cd ~
-$ powar-init --name "dot-files" --path "./dot-files" --author "Gandalf the Grey"
+$ powar_init --path ./dot_files
 ```
 
-This will create a folder `dot-files` containing a NodeJS/TypeScript project.
-Run the template Powar project:
+This will create a folder `dot_files` containing a Deno project. Run the
+template Powar project by:
 
 ```sh
-$ cd ./dot-files
-$ yarn powar
+$ cd dot_files
+$ deno run main.ts
 ```
 
 You should see the following output:
+
 ```
 All module dependencies met.
-Running hello-world...
+Running hello_world...
   Hello, world!
 Done.
 ```
 
-This means that the module `hello-world` was run, which logged the message
+This means that the module `hello_world` was run, which logged the message
 "Hello, world!".
 
-To add your configurations, start by mirroring the `hello-world` module in
-`modules/hello-world/index.ts` to a program of your choice, for example
-`modules/nvim/index.ts`. An example configuration for `nvim` might be:
+To add your configurations, start by mirroring the `hello_world` module in
+`modules/hello_world/mod.ts` to a program of your choice, for example
+`modules/nvim/mod.ts`. An example configuration for `nvim` might be:
+
 ```ts
-import { module } from "powar-ts";
+import { powar } from "../../deps.ts";
 
-interface NvimVars {}
-
-export default module(({}: NvimVars) => ({
+export default powar.module(() => ({
   name: "nvim",
   dependsOn: [],
-  path: __dirname,
+  path: powar.dir(import.meta),
   async action(p) {
-    // Assuming there is a file in the current directory named `init.vim`:
-    p.install({"init.vim", "$HOME/.config/nvim/init.vim"});
+    await p.install({"init.vim", "$HOME/.config/nvim/init.vim"});
     p.info("Neovim configuration installed.");
   },
 }));
-
 ```
 
 Then, update the `global.ts` file to register your new module:
 ```ts
-import { runCli } from "powar-ts";
-import nvim from "./modules/nvim";
+import { powar } from "./deps.ts";
+import nvim from "./modules/nvim/mod.ts";
 
-runCli(() => ({
-  rootPath: __dirname,
+powar.runCli(() => ({
+  rootPath: powar.dir(import.meta),
   modules: [
-    // Add your modules here:
     nvim({}),
   ],
 }));
 ```
 
-Then, running `yarn powar` should produce:
+Then, running `deno run main.ts` should produce:
 ```
 All module dependencies met.
 Running nvim ..
@@ -93,9 +92,9 @@ Done.
 
 ## API and command-line arguments
 
-To see all the available command-line arguments for `yarn powar`, run `yarn
-powar -h`.
+To see all the available command-line arguments for `powar_init`, run
+`powar_init -h`.
 
-All available API functions provided by `powar-ts` are documented in
-[here](https://kontheocharis.github.io/powar-ts).
-
+<!-- TODO: Docs link -->
+<!-- All available API functions provided by `powar-ts` are documented in
+[here](https://kontheocharis.github.io/powar-ts). -->

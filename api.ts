@@ -1,3 +1,5 @@
+import { io } from "./deps.ts";
+
 /**
  * A map of path key-value pairs.
  *
@@ -19,7 +21,7 @@ export interface ExecOpts {
   /**
    * The standard input to pass to the command.
    */
-  stdin?: string | Buffer;
+  stdin?: string | io.Buffer;
   /**
    * The current working directory to run the command in.
    *
@@ -203,7 +205,7 @@ export function module<T>(m: (vars: T) => Module): (vars: T) => Module {
  * Produce some object `U` determined by some module variables `T` and the powar-ts module API.
  */
 export function produce<T, U>(
-  m: (vars: T, p: ModuleApi) => U
+  m: (vars: T, p: ModuleApi) => U,
 ): (vars: T, p: ModuleApi) => U {
   return m;
 }
