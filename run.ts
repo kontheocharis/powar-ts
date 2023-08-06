@@ -83,17 +83,15 @@ function ensureDepsAreMet(ctx: Ctx): void {
  */
 async function performModuleActions(ctx: Ctx): Promise<void> {
   const { log, settings } = ctx;
-  await Promise.all(
-    getRequestedModules(ctx).map(async (module) => {
-      log.info(`Running ${module.name}...`);
-      const api = makeCommonApi({
-        log: makeLogger(settings.logLevel, 1),
-        path: module.path,
-        settings,
-      });
-      await module.action(api);
-    })
-  );
+  for (const module of getRequestedModules(ctx)) {
+    log.info(`Running ${module.name}...`);
+    const api = makeCommonApi({
+      log: makeLogger(settings.logLevel, 1),
+      path: module.path,
+      settings,
+    });
+    await module.action(api);
+  }
 }
 
 /**
