@@ -97,5 +97,5 @@ To see all the available command-line arguments for `yarn powar`, run `yarn
 powar -h`.
 
 All available API functions provided by `powar-ts` are documented in
-[here](https://kontheocharis.github.io/powar-ts/docs).
+[here](https://kontheocharis.github.io/powar-ts).
 
