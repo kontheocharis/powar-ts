@@ -197,9 +197,7 @@ export interface GlobalConfig {
 /**
  * Make a powar-ts module.
  */
-export function module<T = undefined>(
-  m: T extends undefined ? () => Module : (vars: T) => Module
-): typeof m {
+export function module(m: Module): Module {
   return m;
 }
 

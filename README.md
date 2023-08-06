@@ -19,7 +19,7 @@ Requirements: a UNIX system, recent versions of NodeJS and Yarn.
 The first step is to install `powar_init` globally with Deno:
 
 ```sh
-$ deno install --allow-read --allow-run https://deno.land/x/powar@1.0.3/powar_init.ts
+$ deno install --allow-read --allow-run https://deno.land/x/powar@1.0.4/powar_init.ts
 ```
 
 Then, create a new Powar project (where `powar_init` should be replaced by the
@@ -58,7 +58,7 @@ To add your configurations, start by mirroring the `hello_world` module in
 ```ts
 import { powar } from "../../deps.ts";
 
-export default powar.module(() => ({
+export default powar.module({
   name: "nvim",
   dependsOn: [],
   path: powar.dir(import.meta),
@@ -66,7 +66,7 @@ export default powar.module(() => ({
     await p.install({"init.vim", "$HOME/.config/nvim/init.vim"});
     p.info("Neovim configuration installed.");
   },
-}));
+});
 ```
 
 Then, update the `global.ts` file to register your new module:
@@ -74,12 +74,12 @@ Then, update the `global.ts` file to register your new module:
 import { powar } from "./deps.ts";
 import nvim from "./modules/nvim/mod.ts";
 
-powar.runCli(() => ({
+powar.runCli({
   rootPath: powar.dir(import.meta),
   modules: [
     nvim({}),
   ],
-}));
+});
 ```
 
 Then, running `deno run main.ts` should produce:
@@ -96,4 +96,4 @@ To see all the available command-line arguments for `powar_init`, run
 `powar_init -h`.
 
 All available API functions provided by `powar` are documented
-[here](https://deno.land/x/powar@1.0.3/api.ts?s=CommonApi).
+[here](https://deno.land/x/powar@1.0.4/api.ts?s=CommonApi).

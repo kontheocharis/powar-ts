@@ -1,6 +1,6 @@
 import { powar } from "../../deps.ts";
 
-export default powar.module(() => ({
+export default powar.module({
   name: "hello_world",
   dependsOn: [],
   path: powar.dir(import.meta),
@@ -8,4 +8,4 @@ export default powar.module(() => ({
     p.info("Hello, world!");
     return Promise.resolve();
   },
-}));
+});

@@ -8,10 +8,11 @@ import { DEFAULT_SETTINGS, Settings } from "./settings.ts";
  * Run powar-ts on CLI mode, which parses the settings from the command line arguments.
  */
 export async function runCli(
-  global: (settings: Settings) => GlobalConfig,
+  global: GlobalConfig | ((settings: Settings) => GlobalConfig)
 ): Promise<void> {
   const settings = await parseSettingsFromCli();
-  await run(settings, global(settings));
+  const config = typeof global === "function" ? global(settings) : global;
+  await run(settings, config);
 }
 
 /**
@@ -28,11 +29,11 @@ async function parseSettingsFromCli(): Promise<Settings> {
     .option(
       "-s, --skip-modules [modules...:string]",
       "Skip the given modules.",
-      { conflicts: ["only-modules"] },
+      { conflicts: ["only-modules"] }
     )
     .option(
       "-o, --only-modules [modules...:string]",
-      "Only run the given modules.",
+      "Only run the given modules."
     )
     .option("-l, --log-level <level:string>", "Set the log level.", {
       default: DEFAULT_SETTINGS.logLevel,
@@ -41,12 +42,10 @@ async function parseSettingsFromCli(): Promise<Settings> {
 
   // Transform the CLI arguments into a Settings object.
   const modules = (() => {
-    const onlyModules = options.onlyModules === true
-      ? []
-      : options.onlyModules ?? [];
-    const skipModules = options.skipModules === true
-      ? []
-      : options.skipModules ?? [];
+    const onlyModules =
+      options.onlyModules === true ? [] : options.onlyModules ?? [];
+    const skipModules =
+      options.skipModules === true ? [] : options.skipModules ?? [];
 
     if (onlyModules.length > 0) {
       return { only: onlyModules };
@@ -58,7 +57,7 @@ async function parseSettingsFromCli(): Promise<Settings> {
   })();
   if (!["none", "info", "warn"].includes(options.logLevel)) {
     log.fatal(
-      `Invalid log level: ${options.logLevel}. Valid levels are: none, info, warn.`,
+      `Invalid log level: ${options.logLevel}. Valid levels are: none, info, warn.`
     );
   }
 
