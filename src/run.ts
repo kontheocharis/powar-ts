@@ -61,16 +61,20 @@ function ensureDepsAreMet(ctx: Ctx): void {
     config: { modules },
     log,
   } = ctx;
+  const errors = [];
   const moduleNames = new Set(modules.map((m) => m.name));
   for (const module of getRequestedModules(ctx)) {
     const deps = module.dependsOn || [];
     for (const dependency of deps) {
       if (!moduleNames.has(dependency)) {
-        log.fatal(
+        errors.push(
           `Module ${module.name} depends on module ${dependency} but this module is not registered.`
         );
       }
     }
+  }
+  if (errors.length > 0) {
+    log.fatal(errors.join("\n"));
   }
 }
 
