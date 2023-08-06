@@ -19,7 +19,7 @@ Requirements: a UNIX system, recent versions of NodeJS and Yarn.
 The first step is to install `powar_init` globally with Deno:
 
 ```sh
-$ deno install --allow-read --allow-run https://github.com/kontheocharis/powar/powar_init.ts
+$ deno install --allow-read --allow-run https://deno.land/x/powar@1.0.1/powar_init.ts
 ```
 
 Then, create a new Powar project (where `powar_init` should be replaced by the
@@ -95,6 +95,5 @@ Done.
 To see all the available command-line arguments for `powar_init`, run
 `powar_init -h`.
 
-<!-- TODO: Docs link -->
-<!-- All available API functions provided by `powar-ts` are documented in
-[here](https://kontheocharis.github.io/powar-ts). -->
+All available API functions provided by `powar` are documented in
+[here](https://deno.land/x/powar@1.0.1/api.ts?s=CommonApi).
