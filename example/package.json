@@ -2,7 +2,7 @@
   "name": "<<NAME>>",
   "author": "<<AUTHOR>>",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "global.ts",
   "license": "MIT",
   "scripts": {
     "powar": "ts-node global.ts"
