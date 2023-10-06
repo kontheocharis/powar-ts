@@ -107,6 +107,16 @@
     "https://deno.land/x/powar@1.0.2/mod.ts": "e4130692cdc27969f065d54370f350b72b9c704b583ba405dafba28477e3501e",
     "https://deno.land/x/powar@1.0.2/run.ts": "c34f354407b3ad70dcef45aa819bcd3c821b3d11941afe7c195fab1a657b9455",
     "https://deno.land/x/powar@1.0.2/settings.ts": "1607d2d729177c78d9f5521f2b1199228e981cb48c976180c31c0fe303a5bc72",
-    "https://deno.land/x/powar@1.0.2/utils.ts": "2708a5518184c97a7db7aecb834dad4e1c5bd37a5991edf4531c38816d2b9415"
+    "https://deno.land/x/powar@1.0.2/utils.ts": "2708a5518184c97a7db7aecb834dad4e1c5bd37a5991edf4531c38816d2b9415",
+    "https://deno.land/x/powar@1.0.4/api.ts": "023da66338640071bc69a301736e3faeeb1e4b4b9a3ccd76ac5abf8be3c34ec4",
+    "https://deno.land/x/powar@1.0.4/api_impl.ts": "3d7dc1f1ea8f5b1fd8c84ce358050df7729cde8860f6bf223416d1b0e74f9909",
+    "https://deno.land/x/powar@1.0.4/cli.ts": "88e8ce5cc1e868a7e5a4f8879dfe2b096c9e4dc93033554d808775209d2ff6c2",
+    "https://deno.land/x/powar@1.0.4/deps.ts": "8b9a97a396a47920e0cbdfceecc77a155c947c85dcfdc4b86236b01abb2a148c",
+    "https://deno.land/x/powar@1.0.4/execute.ts": "f21fbef6b80c6e3442a268bd7ae3b78fd71d1884c7d9bc4c399c8411fae683b0",
+    "https://deno.land/x/powar@1.0.4/logging.ts": "0a000d70e8f632466cf21a780907be8aaf71e7d127975523e4fde0bc1f9536cd",
+    "https://deno.land/x/powar@1.0.4/mod.ts": "e4130692cdc27969f065d54370f350b72b9c704b583ba405dafba28477e3501e",
+    "https://deno.land/x/powar@1.0.4/run.ts": "20e303980d0318d11581186af2cafd77fb5eb6e2b7d003646fba322dd5b8d211",
+    "https://deno.land/x/powar@1.0.4/settings.ts": "1607d2d729177c78d9f5521f2b1199228e981cb48c976180c31c0fe303a5bc72",
+    "https://deno.land/x/powar@1.0.4/utils.ts": "2708a5518184c97a7db7aecb834dad4e1c5bd37a5991edf4531c38816d2b9415"
   }
 }
