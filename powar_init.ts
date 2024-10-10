@@ -14,7 +14,7 @@ async function init() {
       "The path to initialise the project in.",
       { required: true }
     )
-    .action(async (args) => {
+    .action(async (args: { path: string; }) => {
       const log = makeLogger();
 
       // Copy the example folder to the given path.
