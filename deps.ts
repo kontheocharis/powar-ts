@@ -1,4 +1,4 @@
-export * as path from "https://deno.land/std@0.197.0/path/mod.ts";
-export * as fs from "https://deno.land/std@0.197.0/fs/mod.ts";
-export * as io from "https://deno.land/std@0.197.0/io/mod.ts";
-export * as cliffy from "https://deno.land/x/cliffy@v1.0.0-rc.3/command/mod.ts";
+export * as path from "jsr:@std/path@1.0.6";
+export * as fs from "jsr:@std/fs@1.0.4";
+export * as io from "jsr:@std/io@0.225.0";
+export * as cliffy from "jsr:@cliffy/command@1.0.0-rc.5";
