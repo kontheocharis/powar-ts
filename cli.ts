@@ -1,8 +1,8 @@
 import { cliffy } from "./deps.ts";
-import { GlobalConfig } from "./api.ts";
+import type { GlobalConfig } from "./api.ts";
 import { makeLogger } from "./logging.ts";
 import { run } from "./run.ts";
-import { DEFAULT_SETTINGS, Settings } from "./settings.ts";
+import { DEFAULT_SETTINGS, type Settings } from "./settings.ts";
 
 /**
  * Run powar-ts on CLI mode, which parses the settings from the command line arguments.

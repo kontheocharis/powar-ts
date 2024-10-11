@@ -1,4 +1,4 @@
-import { io } from "./deps.ts";
+import type { io } from "./deps.ts";
 
 /**
  * A map of path key-value pairs.

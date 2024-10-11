@@ -1,13 +1,13 @@
 import {
-  CommonApi,
-  Contents,
+  type CommonApi,
+  type Contents,
   EMPTY_OUTPUT,
-  Entries,
-  ExecOpts,
-  Output,
+  type Entries,
+  type ExecOpts,
+  type Output,
 } from "./api.ts";
-import { Logger } from "./logging.ts";
-import { Settings } from "./settings.ts";
+import type { Logger } from "./logging.ts";
+import type { Settings } from "./settings.ts";
 import { execute } from "./execute.ts";
 import { path } from "./deps.ts";
 

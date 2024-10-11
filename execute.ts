@@ -1,4 +1,4 @@
-import { ExecOpts as ExecOpts, Output } from "./api.ts";
+import type { ExecOpts as ExecOpts, Output } from "./api.ts";
 
 /**
  * Execute the given command in the shell.

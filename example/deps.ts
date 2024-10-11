@@ -1,1 +1,1 @@
-export * as powar from "powar/mod.ts";
+export * as powar from "jsr:@kontheocharis/powar";
