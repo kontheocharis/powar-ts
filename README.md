@@ -19,16 +19,16 @@ Requirements: a UNIX system, recent versions of NodeJS and Yarn.
 The first step is to install `powar_init` globally with Deno:
 
 ```sh
-$ deno install --global --allow-read --allow-run jsr:@kontheocharis/powar/powar_init
+$ deno install -g --allow-read --allow-run jsr:@kontheocharis/powar/powar-init
 ```
 
-Then, create a new Powar project (where `powar_init` should be replaced by the
+Then, create a new Powar project (where `powar-init` should be replaced by the
 full installation path printed by the command above, if Deno is not in your
 `PATH`):
 
 ```sh
 $ cd ~
-$ powar_init --path ./dot_files
+$ powar-init --path ./dot_files
 ```
 
 This will create a folder `dot_files` containing a Deno project. Run the
@@ -92,8 +92,8 @@ Done.
 
 ## API and command-line arguments
 
-To see all the available command-line arguments for `powar_init`, run
-`powar_init -h`.
+To see all the available command-line arguments for `powar-init`, run
+`powar-init -h`.
 
 All available API functions provided by `powar` are documented
 [here](https://jsr.io/@kontheocharis/powar/doc/~/CommonApi).

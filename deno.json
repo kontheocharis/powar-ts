@@ -1,9 +1,9 @@
 {
   "name": "@kontheocharis/powar",
   "version": "1.0.5",
-  "exports": "./mod.ts",
-  "license": "MIT",
-  "imports": {
-    "powar/": "jsr:@kontheocharis/powar/"
-  }
+  "exports": {
+    ".": "./mod.ts",
+    "./powar-init": "./powar_init.ts"
+  },
+  "license": "MIT"
 }
