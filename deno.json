@@ -1,0 +1,6 @@
+{
+  "name": "@kontheocharis/powar",
+  "version": "1.0.5",
+  "exports": "./mod.ts",
+  "license": "MIT"
+}

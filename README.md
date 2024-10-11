@@ -19,7 +19,7 @@ Requirements: a UNIX system, recent versions of NodeJS and Yarn.
 The first step is to install `powar_init` globally with Deno:
 
 ```sh
-$ deno install --allow-read --allow-run https://deno.land/x/powar@1.0.4/powar_init.ts
+$ deno install --allow-read --allow-run jsr:@kontheocharis/powar/powar_init
 ```
 
 Then, create a new Powar project (where `powar_init` should be replaced by the
