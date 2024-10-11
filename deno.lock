@@ -68,5 +68,10 @@
     "@std/text@1.0.0-rc.1": {
       "integrity": "34c722203e87ee12792c8d4a0cd2ee0e001341cbce75b860fc21be19d62232b0"
     }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@kontheocharis/powar@*"
+    ]
   }
 }
