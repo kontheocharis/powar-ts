@@ -23,7 +23,7 @@ async function init() {
 
       // Done
       log.info(
-        `Created a new powar-ts project in ${args.path}! To get started, run \`cd ${args.path}; deno run global.ts\`.`
+        `Created a new powar-ts project in ${args.path}! To get started, run \`cd ${args.path}; deno run main.ts\`.`
       );
     })
     .parse(Deno.args);
