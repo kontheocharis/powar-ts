@@ -14,7 +14,7 @@ installing files or running commands.
 
 ## Getting started
 
-Requirements: a UNIX system, recent versions of NodeJS and Yarn.
+Requirements: a UNIX system, and Deno 2.
 
 The first step is to install `powar_init` globally with Deno:
 
